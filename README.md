@@ -1,4 +1,4 @@
-# Pemrograman_Terstruktur1
+# Praktikum_Petruk
 soal
 Laporan 1
   1. Program autentikasi yang menerima inputan username, email dan password. Jika autentikasi berhasil maka terdapat 3 pilihan:
