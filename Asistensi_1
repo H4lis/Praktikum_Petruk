@@ -1,0 +1,62 @@
+#include <iostream>
+using namespace std;
+
+void Kurang(){
+    float a, b;
+    float hasil;
+    cout << " \nPengurangan\n";
+    cout << " Masukkan Bilangan Pertama : "; cin >> a;
+    cout << " Masukkan Bilangan Kedua : "; cin >> b;
+    hasil = a-b;
+    cout << " Hasil Penghitungan : " << hasil << endl << endl;
+}
+ 
+void Kali(){
+    float a, b;
+    float hasil;
+    cout << " Perkalian\n\n";
+    cout << " Masukkan Bilangan Pertama : "; cin >> a;
+    cout << " Masukkan Bilangan Kedua : "; cin >> b;
+    hasil = a*b;
+    cout << " Hasil Penghitungan : " << hasil << endl;
+}
+ 
+void Bagi(){
+    float a, b;
+    float hasil;
+    cout << " Pembagian\n\n";
+    cout << " Masukkan Bilangan Pertama : "; cin >> a;
+    cout << " Masukkan Bilangan Kedua : "; cin >> b;
+    hasil = a/b;
+    cout << " Hasil Penghitungan : " << hasil << endl;
+}
+ 
+
+int main (){
+	int pilih;
+	
+	cout << " ===== Kalkulator Sederhana =====" << endl << endl;
+ulang:
+	cout << " Pilih Operasi Aritmatik" << endl;
+    cout << " 1. Pengurangan" << endl;
+    cout << " 2. Perkalian" << endl;
+    cout << " 3. Pembagian" << endl;
+    cout << "\pilih : "; cin >> pilih;
+    
+	if( pilih = 1){
+		system("cls");
+		Kurang();
+		system ("pause");
+		goto ulang;
+	}else if (pilih = 2){
+		system("cls");
+		void Kali();
+		system ("pause");
+		goto ulang;		
+	}else if (pilih = 3){
+		system("cls");
+		void Bagi();
+		system ("pause");	
+		goto ulang;	
+	}
+}
