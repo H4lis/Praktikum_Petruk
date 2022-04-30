@@ -1,0 +1,106 @@
+/*Soal.
+1. Program autentikasi yang menerima inputan username, email dan password. Jika autentikasi berhasil maka terdapat 3 pilihan:
+a. Ganti password -> Masukkan password baru -> berhasil
+b. Tambah saldo (Saldo awal: 2 digit terakhir saldo adalah nim masing masing, mis: 41) 
+c. Lihat saldo
+d. Log out (masukkan password baru) 
+Syarat login:
+(Ingat praktikum pertama soal 1: cara login. ) */
+
+#include <iostream>
+using namespace std;
+
+void password();
+void Saldo();
+void log_out();
+void lihat_saldo();
+
+int ts, pil ;
+string pt, p, n, e;
+
+int main(){
+	string un   ="halis";
+	string em  = "nurhalis092@gmail.com";
+	string pas = "halis1";	
+		
+	while (true){
+		cout << "PROGRAM AUTENTIKASI \n";
+		cout << "Input Username   =" ; cin >> n;
+		cout << "Input Email      =" ; cin >> e;
+		cout << "Input Password   =" ; cin >> p;
+		cout << endl;
+		
+		if (e == em && p == pas && n == un){
+			mulai:
+				system ("cls");
+				cout << "ANDA BERHASIL MASUK";
+				cout << "\n1. Ganti Password \n";
+				cout << "2. Tambah saldo  \n";
+				cout << "3. Lihat saldo   \n";
+				cout << "4. Log out       \n";
+				cout << "Pilih = "; cin >> pil; cout << endl;
+				switch (pil){
+					case 1:
+						password();
+						system ("cls");
+						goto mulai;
+					case 2:
+						Saldo();
+						system ("cls");
+						goto mulai;
+						
+					case 3:
+						lihat_saldo();
+						system ("pause");
+						system ("cls");
+						goto mulai;
+					case 4:
+						log_out();
+						return 0;
+					
+						}
+			}else if (e == em && p == pas && n != un){
+				cout << "USERNAME SALAH\n\n";
+			}else if (e == em && p != pas && n == un){
+				cout << "PASSWORD SALAH\n\n";
+			}else if (e != em && p == pas && n == un){
+				cout << "EMAIL SALAH\n\n";
+			}else if (e != em && p == pas && n != un){
+				cout << "USER DAN EMAIL SALAH\n\n";
+			}else if (e == em && p != pas && n != un){
+				cout << "USER DAN PASS SALAH\n\n";
+			}else if (e != em && p != pas && n == un){
+				cout << "EMAIL DAN PASS SALAH\n\n";
+			}else if (e != em && p != pas && n != un){
+				cout << "USERNAME, PASSWORD DAN EMAIL SALAH\n\n";
+		}
+		
+	}
+				
+}
+void password(){
+	cout << "Masukkan Password Baru   =" ; cin >> p; 
+	cout << "BERHASIL DIGANTI\n\n";
+	system ("pause");
+}
+void Saldo(){
+	
+	cout << "Tambah Saldo = "; cin >> ts;
+}
+void lihat_saldo(){
+	cout << "saldo anda = "  << ts + 60 << endl;
+}
+void log_out(){
+	ulang:
+	cout << "Masukkan Pasword = "; cin >> pt ; 
+	if (pt == p){
+		system ("cls");	
+		cout << "Berhasil ";
+	}else{
+		system ("cls");
+		cout << "Password salah\n";
+		goto ulang;
+		
+	}
+}
+
