@@ -8,4 +8,8 @@ Laporan 1
   d. Log out (masukkan password baru) 
   Syarat login:
   (Ingat praktikum pertama soal 1: cara login. ) */
+  
+  soal
+  asistensi 1
+    Membuat program dengan if else
 
