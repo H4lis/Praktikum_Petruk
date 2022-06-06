@@ -1,0 +1,30 @@
+#include <iostream>
+using namespace std;
+
+int main (){
+	int bi, i;
+	string nama  [10];
+	string nim   [10];
+	string kelas [10];
+	
+	cout << "Berapa jumlah inputan Mahasiswa ="; cin >> bi ;
+	
+	for (i= 0 ; i < bi ; i++){
+		cin.ignore();
+		cout << "Mahasiswa " << i+1 << endl; 
+		cout << "Nama  = " << ": ";  getline(cin,nama[i]); 
+		cout << "nim   = " << ": ";  cin >>nim  [i];
+		cout << "kelas = " << ": ";  cin >>kelas[i];
+		cout << endl ;
+	}
+
+	system("cls");
+	
+	for (i= 0; i <bi ; i++){
+		cout << "Mahasiswa " << i+1 << endl; 		
+		cout << "Nama  "  << ": " << nama [i] << endl;
+		cout << "Nim   "  << ": " << nim  [i] << endl;
+		cout << "Kelas "  << ": " << nim  [i] << endl;
+		cout << endl;
+	}
+}
