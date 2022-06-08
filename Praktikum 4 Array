@@ -1,0 +1,627 @@
+#include <iostream>
+#include <string>
+using namespace std;
+
+int main() {
+
+	int pilih, provinsi, daerah;
+	int i = 0, f, j = 0, s = 2;
+	int d;
+	string nama[50], nisn[50], sekolah[50], alamat[50];
+	string umur[50], pProvinsi[50], pDaerah[50];
+	string Unisn, ulang, username, password, Ubahnisn;
+	bool data, data2;
+
+	do {
+		cout << "==================" << endl;
+		cout << "MASUKKAN USERNAME : "; cin >> username;
+		cout << "MASUKKAN PASSWORD : "; cin >> password;
+		cout << "==================" << endl;
+
+		if (s == 0) {
+			return 0;
+		}
+
+		if (username == "ijal" && password == "123") {
+			goto x;
+		}
+		else {
+			cout << "PASWORD ATAU EMAIL ANDA SALAH" << endl;
+			cout << "SISA PERCOBAAN " << s << endl;
+			cout << "==================" << endl;
+			s--;
+		}
+
+	} while (s >= 0);
+	
+x:
+
+	do {
+
+		c:
+		system("cls");
+		cout << "==================" << endl;
+		cout << "       MENU       " << endl;
+		cout << "==================" << endl;
+		cout << "[1].INPUT DATA    " << endl;
+		cout << "[2].LIHAT DATA    " << endl;
+		cout << "[3].UBAH DATA     " << endl;
+		cout << "[4].HAPUS DATA    " << endl;
+		cout << "[5].LIHAT USER    " << endl;
+		cout << "[6].KELUAR        " << endl;
+		cout << "==================" << endl;
+		cout << "PILIH [1-6] : "; cin >> pilih;
+
+		if (pilih == 1) {
+
+			cout << "====================" << endl;
+			cout << "MASUKKAN NAMA    : "; cin.ignore(); getline(cin, nama[i]);
+			cout << "MASUKKAN NISN    : "; cin >> Unisn;
+			for (int m = 0; m < i; m++) {
+				if (nisn[m] == Unisn) {
+					goto c;
+				}
+			}
+			nisn[i] = Unisn;
+
+			cout << "MASUKKAN SEKOLAH : "; cin >> sekolah[i];
+			cout << "MASUKKAN ALAMAT  : "; cin >> alamat[i];
+			cout << "MASUKKAN UMUR    : "; cin >> umur[i];
+
+			cout << "======================" << endl;
+			cout << "        PROVINSI      " << endl;
+			cout << "======================" << endl;
+			cout << "[1].SULAWESI SELATAN  " << endl;
+			cout << "[2].SULAWESI BARAT    " << endl;
+			cout << "[3].SULAWESI TENGAH   " << endl;
+			cout << "[4].SULAWESI UTARA    " << endl;
+			cout << "[5].SULAWESI TENGGARA " << endl;
+			cout << "======================" << endl;
+			cout << "PILIH PROVINSI   : "; cin >> provinsi;
+
+			if (provinsi == 1) {
+				pProvinsi[i] = "SULAWESI SELATAN";
+
+				cout << "====================" << endl;
+				cout << "        DESA        " << endl;
+				cout << "====================" << endl;
+				cout << "[1].BONTOPEDDA      " << endl;
+				cout << "[2].BIKERU          " << endl;
+				cout << "[3].BORONG          " << endl;
+				cout << "[4].GOJENG          " << endl;
+				cout << "[5].MANGOTTONG      " << endl;
+				cout << "[6].MANGARABOMBANG  " << endl;
+				cout << "[7].LAPPAE          " << endl;
+				cout << "====================" << endl;
+				cout << "PILIH DAERAH : "; cin >> daerah;
+
+				if (daerah == 1) {
+					pDaerah[i] = "BONTOPEDDA";
+				}
+				else if (daerah == 2) {
+					pDaerah[i] = "BIKERU";
+				}
+				else if (daerah == 3) {
+					pDaerah[i] = "BORONG";
+				}
+				else if (daerah == 4) {
+					pDaerah[i] = "GOJENG";
+				}
+				else if (daerah == 5) {
+					pDaerah[i] = "MANGOTTONG";
+				}
+				else if (daerah == 6) {
+					pDaerah[i] = "MANGARABOMBANG";
+				}
+				else if (daerah == 7) {
+					pDaerah[i] = "LAPPAE";
+				}
+
+			}
+			else if (provinsi == 2) {
+				pProvinsi[i] = "SULAWESI BARAT";
+
+				cout << "====================" << endl;
+				cout << "        DESA        " << endl;
+				cout << "====================" << endl;
+				cout << "[1].AHU             " << endl;
+				cout << "[2].POLEWALI        " << endl;
+				cout << "[3].MAMASA          " << endl;
+				cout << "[4].TOBADAK         " << endl;
+				cout << "[5].MAMBI           " << endl;
+				cout << "[6].GALESO          " << endl;
+				cout << "[7].BULO             " << endl;
+				cout << "====================" << endl;
+				cout << "PILIH DAERAH : "; cin >> daerah;
+
+				if (daerah == 1) {
+					pDaerah[i] = "AHU";
+				}
+				else if (daerah == 2) {
+					pDaerah[i] = "POLEWALI";
+				}
+				else if (daerah == 3) {
+					pDaerah[i] = "MAMASA";
+				}
+				else if (daerah == 4) {
+					pDaerah[i] = "TOBADAK";
+				}
+				else if (daerah == 5) {
+					pDaerah[i] = "MAMBI";
+				}
+				else if (daerah == 6) {
+					pDaerah[i] = "GALESO";
+				}
+				else if (daerah == 7) {
+					pDaerah[i] = "BULO";
+				}
+			}
+			else if (provinsi == 3) {
+				pProvinsi[i] = "SULAWESI TENGAH";
+
+				cout << "====================" << endl;
+				cout << "        DESA        " << endl;
+				cout << "====================" << endl;
+				cout << "[1].ALITUPU         " << endl;
+				cout << "[2].BATUL           " << endl;
+				cout << "[3].SIGI            " << endl;
+				cout << "[4].DONGGALA        " << endl;
+				cout << "[5].LAMALA          " << endl;
+				cout << "[6].POSO            " << endl;
+				cout << "[7].MOROWALI        " << endl;
+				cout << "====================" << endl;
+				cout << "PILIH DAERAH : "; cin >> daerah;
+
+				if (daerah == 1) {
+					pDaerah[i] = "ALITUPU";
+				}
+				else if (daerah == 2) {
+					pDaerah[i] = "BATUL";
+				}
+				else if (daerah == 3) {
+					pDaerah[i] = "SIGI";
+				}
+				else if (daerah == 4) {
+					pDaerah[i] = "DONGGALA";
+				}
+				else if (daerah == 5) {
+					pDaerah[i] = "LAMALA";
+				}
+				else if (daerah == 6) {
+					pDaerah[i] = "POSO";
+				}
+				else if (daerah == 7) {
+					pDaerah[i] = "MOROWALI";
+				}
+
+			}
+			else if (provinsi == 4) {
+				pProvinsi[i] = "SULAWESI UTARA";
+
+				cout << "====================" << endl;
+				cout << "        DESA        " << endl;
+				cout << "====================" << endl;
+				cout << "[1].MINAHASA        " << endl;
+				cout << "[2].BEO             " << endl;
+				cout << "[3].BIARO           " << endl;
+				cout << "[4].CEMPAKA         " << endl;
+				cout << "[5].DAME            " << endl;
+				cout << "[6].BANTIK          " << endl;
+				cout << "[7].GEMEH           " << endl;
+				cout << "====================" << endl;
+				cout << "PILIH DAERAH : "; cin >> daerah;
+
+				if (daerah == 1) {
+					pDaerah[i] = "MINAHASA";
+				}
+				else if (daerah == 2) {
+					pDaerah[i] = "BEO";
+				}
+				else if (daerah == 3) {
+					pDaerah[i] = "BIARO";
+				}
+				else if (daerah == 4) {
+					pDaerah[i] = "CEMPAKA";
+				}
+				else if (daerah == 5) {
+					pDaerah[i] = "DAME";
+				}
+				else if (daerah == 6) {
+					pDaerah[i] = "BANTIK";
+				}
+				else if (daerah == 7) {
+					pDaerah[i] = "GEMEH";
+				}
+			}
+			else if (provinsi == 5) {
+				pProvinsi[i] = "SULAWESI TENGGARA";
+				cout << "====================" << endl;
+				cout << "        DESA        " << endl;
+				cout << "====================" << endl;
+				cout << "[1].MAGINTI         " << endl;
+				cout << "[2].KOLAKA          " << endl;
+				cout << "[3].LOHIA           " << endl;
+				cout << "[4].KONAWE          " << endl;
+				cout << "[5].LINDO           " << endl;
+				cout << "[6].GALA            " << endl;
+				cout << "[7].HORUO           " << endl;
+				cout << "====================" << endl;
+				cout << "PILIH DAERAH : "; cin >> daerah;
+
+				if (daerah == 1) {
+					pDaerah[i] = "MAGINTI";
+				}
+				else if (daerah == 2) {
+					pDaerah[i] = "KOLAKA";
+				}
+				else if (daerah == 3) {
+					pDaerah[i] = "LOHIA";
+				}
+				else if (daerah == 4) {
+					pDaerah[i] = "KONAWE";
+				}
+				else if (daerah == 5) {
+					pDaerah[i] = "LINDO";
+				}
+				else if (daerah == 6) {
+					pDaerah[i] = "GALA";
+				}
+				else if (daerah == 7) {
+					pDaerah[i] = "HARUO";
+				}
+			}
+
+			i++;
+		}
+		else if (pilih == 2) {
+
+			cout << "MASUKKAN NISN : "; cin >> Unisn;
+			for (int k = 0; k < i; k++) {
+
+				if (Unisn == nisn[k]) {
+					f = k;
+					data = true;
+					break;
+				}
+				else {
+					data = false;
+				}
+
+			}
+
+			if (data == true) {
+
+				cout << "====================" << endl;
+				cout << "NAMA     : " << nama[f] << endl;
+				cout << "NISN     : " << nisn[f] << endl;
+				cout << "SEKOLAH  : " << sekolah[f] << endl;
+				cout << "ALAMAT   : " << alamat[f] << endl;
+				cout << "UMUR     : " << umur[f] << endl;
+				cout << "PROVINSI : " << pProvinsi[f] << endl;
+				cout << "DAERAH   : " << pDaerah[f] << endl;
+				cout << "====================" << endl;
+
+			}
+			else {
+				cout << "====================" << endl;
+				cout << "   DATA TIDAK ADA   " << endl;
+				cout << "====================" << endl;
+			}
+
+		}
+		else if (pilih == 3) {
+
+			cout << "MASUKKAN NISN : "; cin >> Unisn;
+			for (int t = 0; t < i; t++) {
+
+				if (Unisn == nisn[t]) {
+					
+					f = t;
+					data = true;
+					break;
+
+				}
+				else {
+
+					data = false;
+
+				}
+
+			}
+
+			if (data == true) {
+
+				cout << "====================" << endl;				
+				cout << "MASUKKAN NISN    : "; cin >> Ubahnisn;
+				for (int m = 0; m < i; m++) {
+					if (nisn[m] == Ubahnisn) {
+						goto c;
+					}
+				}
+				nisn[f] = Ubahnisn;
+				cout << "MASUKKAN NAMA    : "; cin.ignore(); getline(cin, nama[f]);
+				cout << "MASUKKAN SEKOLAH : "; cin >> sekolah[f];
+				cout << "MASUKKAN ALAMAT  : "; cin >> alamat[f];
+				cout << "MASUKKAN UMUR    : "; cin >> umur[f];
+				cout << "====================" << endl;
+
+				cout << "====================" << endl;
+				cout << "       PROVINSI     " << endl;
+				cout << "====================" << endl;
+				cout << "[1].SULAWESI SELATAN" << endl;
+				cout << "[2].SULAWESI BARAT  " << endl;
+				cout << "[3].SULAWESI TENGAH " << endl;
+				cout << "[4].SULAWESI UTARA  " << endl;
+				cout << "[5].SULAWESI TENGGARA " << endl;
+				cout << "====================" << endl;
+
+				cout << "PILIH PROVINSI   : "; cin >> provinsi;
+
+				if (provinsi == 1) {
+					pProvinsi[f] = "SULAWESI SELATAN";
+
+					cout << "====================" << endl;
+					cout << "        DESA        " << endl;
+					cout << "====================" << endl;
+					cout << "[1].BONTOPEDDA      " << endl;
+					cout << "[2].BIKERU          " << endl;
+					cout << "[3].BORONG          " << endl;
+					cout << "[4].GOJENG          " << endl;
+					cout << "[5].MANGOTTONG      " << endl;
+					cout << "[6].MANGARABOMBANG  " << endl;
+					cout << "[7].LAPPAE          " << endl;
+					cout << "====================" << endl;
+					cout << "PILIH DAERAH : "; cin >> daerah;
+
+					if (daerah == 1) {
+						pDaerah[f] = "BONTOPEDDA";
+					}
+					else if (daerah == 2) {
+						pDaerah[f] = "BIKERU";
+					}
+					else if (daerah == 3) {
+						pDaerah[f] = "BORONG";
+					}
+					else if (daerah == 4) {
+						pDaerah[f] = "GOJENG";
+					}
+					else if (daerah == 5) {
+						pDaerah[f] = "MANGOTTONG";
+					}
+					else if (daerah == 6) {
+						pDaerah[f] = "MANGARABOMBANG";
+					}
+					else if (daerah == 7) {
+						pDaerah[f] = "LAPPAE";
+					}
+				}
+				else if (provinsi == 2) {
+					pProvinsi[f] = "SULAWESI BARAT";
+
+					cout << "====================" << endl;
+					cout << "        DESA        " << endl;
+					cout << "====================" << endl;
+					cout << "[1].AHU             " << endl;
+					cout << "[2].POLEWALI        " << endl;
+					cout << "[3].MAMASA          " << endl;
+					cout << "[4].TOBADAK         " << endl;
+					cout << "[5].MAMBI           " << endl;
+					cout << "[6].GALESO          " << endl;
+					cout << "[7].BULO             " << endl;
+					cout << "====================" << endl;
+					cout << "PILIH DAERAH : "; cin >> daerah;
+
+					if (daerah == 1) {
+						pDaerah[f] = "AHU";
+					}
+					else if (daerah == 2) {
+						pDaerah[f] = "POLEWALI";
+					}
+					else if (daerah == 3) {
+						pDaerah[f] = "MAMASA";
+					}
+					else if (daerah == 4) {
+						pDaerah[f] = "TOBADAK";
+					}
+					else if (daerah == 5) {
+						pDaerah[f] = "MAMBI";
+					}
+					else if (daerah == 6) {
+						pDaerah[f] = "GALESO";
+					}
+					else if (daerah == 7) {
+						pDaerah[f] = "BULO";
+					}
+				}
+				else if (provinsi == 3) {
+					pProvinsi[f] = "SULAWESI TENGAH";
+					cout << "====================" << endl;
+					cout << "        DESA        " << endl;
+					cout << "====================" << endl;
+					cout << "[1].ALITUPU         " << endl;
+					cout << "[2].BATUL           " << endl;
+					cout << "[3].SIGI            " << endl;
+					cout << "[4].DONGGALA        " << endl;
+					cout << "[5].LAMALA          " << endl;
+					cout << "[6].POSO            " << endl;
+					cout << "[7].MOROWALI        " << endl;
+					cout << "====================" << endl;
+					cout << "PILIH DAERAH : "; cin >> daerah;
+
+					if (daerah == 1) {
+						pDaerah[f] = "ALITUPU";
+					}
+					else if (daerah == 2) {
+						pDaerah[f] = "BATUL";
+					}
+					else if (daerah == 3) {
+						pDaerah[f] = "SIGI";
+					}
+					else if (daerah == 4) {
+						pDaerah[f] = "DONGGALA";
+					}
+					else if (daerah == 5) {
+						pDaerah[f] = "LAMALA";
+					}
+					else if (daerah == 6) {
+						pDaerah[f] = "POSO";
+					}
+					else if (daerah == 7) {
+						pDaerah[f] = "MOROWALI";
+					}
+				}
+				else if (provinsi == 4) {
+					pProvinsi[f] = "SULAWESI UTARA";
+
+					cout << "====================" << endl;
+					cout << "        DESA        " << endl;
+					cout << "====================" << endl;
+					cout << "[1].MINAHASA        " << endl;
+					cout << "[2].BEO             " << endl;
+					cout << "[3].BIARO           " << endl;
+					cout << "[4].CEMPAKA         " << endl;
+					cout << "[5].DAME            " << endl;
+					cout << "[6].BANTIK          " << endl;
+					cout << "[7].GEMEH           " << endl;
+					cout << "====================" << endl;
+					cout << "PILIH DAERAH : "; cin >> daerah;
+
+					if (daerah == 1) {
+						pDaerah[f] = "MINAHASA";
+					}
+					else if (daerah == 2) {
+						pDaerah[f] = "BEO";
+					}
+					else if (daerah == 3) {
+						pDaerah[f] = "BIARO";
+					}
+					else if (daerah == 4) {
+						pDaerah[f] = "CEMPAKA";
+					}
+					else if (daerah == 5) {
+						pDaerah[f] = "DAME";
+					}
+					else if (daerah == 6) {
+						pDaerah[f] = "BANTIK";
+					}
+					else if (daerah == 7) {
+						pDaerah[f] = "GEMEH";
+					}
+				}
+				else if (provinsi == 5) {
+					pProvinsi[f] = "SULAWESI TENGGARA";
+
+					cout << "====================" << endl;
+					cout << "        DESA        " << endl;
+					cout << "====================" << endl;
+					cout << "[1].MAGINTI         " << endl;
+					cout << "[2].KOLAKA          " << endl;
+					cout << "[3].LOHIA           " << endl;
+					cout << "[4].KONAWE          " << endl;
+					cout << "[5].LINDO           " << endl;
+					cout << "[6].GALA            " << endl;
+					cout << "[7].HORUO           " << endl;
+					cout << "====================" << endl;
+					cout << "PILIH DAERAH : "; cin >> daerah;
+
+					if (daerah == 1) {
+						pDaerah[i] = "MAGINTI";
+					}
+					else if (daerah == 2) {
+						pDaerah[i] = "KOLAKA";
+					}
+					else if (daerah == 3) {
+						pDaerah[i] = "LOHIA";
+					}
+					else if (daerah == 4) {
+						pDaerah[i] = "KONAWE";
+					}
+					else if (daerah == 5) {
+						pDaerah[i] = "LINDO";
+					}
+					else if (daerah == 6) {
+						pDaerah[i] = "GALA";
+					}
+					else if (daerah == 7) {
+						pDaerah[i] = "HARUO";
+					}
+
+					cout << "====================" << endl;
+					cout << "    DATA TERUBAH    " << endl;
+					cout << "====================" << endl;
+
+				}
+				else {
+					cout << "====================" << endl;
+					cout << "   DATA TIDAK ADA   " << endl;
+					cout << "====================" << endl;
+				}
+			}
+		}
+		else if (pilih == 4) {
+
+		d = 0;
+		cout << "MASUKKAN NISN : "; cin >> Unisn;
+
+		for (int k = 0; k < i; k++) {
+			if (nisn[k] == Unisn) {
+
+				j = k;
+				i--;
+				d++;
+				break;
+
+			}
+		}
+
+		if (d == 1) {
+
+			for (int y = j; y < i; y++) {
+
+				nama[y] = nama[y + 1];
+				nisn[y] = nisn[y + 1];
+				sekolah[y] = sekolah[y + 1];
+				alamat[y] = alamat[y + 1];
+				pProvinsi[y] = pProvinsi[y + 1];
+				pDaerah[y] = pDaerah[y + 1];
+
+			}
+
+			cout << "====================" << endl;
+			cout << "    DATA TERHAPUS   " << endl;
+			cout << "====================" << endl;
+		}
+		else {
+			cout << "====================" << endl;
+			cout << "   DATA TIDAK ADA   " << endl;
+			cout << "====================" << endl;
+			}
+
+		}
+		else if (pilih == 5) {
+
+		cout << "====================" << endl;
+		cout << "        USER         " << endl;
+		cout << "====================" << endl;
+			for (int h = 0; h < i; h++) {
+
+				cout << "[" << h + 1 << "]." << nama[h] << endl;
+
+			}
+
+		cout << "====================" << endl;
+
+		}
+		else if (pilih == 6) {
+			return 0;
+		}
+		else {
+
+			cout << "PILIHAN TIDAK ADA" << endl;
+
+		}
+			
+		cout << "KEMBALI? [Y/N] : "; cin >> ulang;
+	}while (ulang == "Y");
+
+}
