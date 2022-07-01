@@ -1,0 +1,25 @@
+#include <iostream>
+using namespace std;
+
+int kal(char a, int b,int c){
+	int hasil;
+	switch (a){
+		case '+' : hasil = b + c;
+			break;
+		case '-' : hasil = b + c;
+			break;
+		case '*' : hasil = b + c;
+			break;
+	}
+	return hasil;	
+}
+int main(){
+	int b,c;
+	char a;
+	cout << "Program Kalkulator" << endl;
+	cout << "Input Operator :" ;cin >> a;
+	cout << "Input Nilai A  :" ; cin >> b;
+	cout << "Input Nilai B  :" ;cin >> c;
+	cout << "Hasil = " << kal(a,b,c) ;
+	
+}
