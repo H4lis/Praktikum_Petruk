@@ -1,0 +1,283 @@
+#include <iostream>
+#include <string>
+#include <conio.h>
+using namespace std;
+
+void login();
+string hidePassword(string& password);
+void menu();
+void inputData(int &i);
+void cariData(int &i);
+void bayarSpp(int &i);
+void lihatData(int &i);
+void editData(int &i);
+void hapusData(int &i);
+void faq();
+
+string nama[100], nisn[100], ttl[100], alamat[100], ibu[100], ayah[100], spp[100];
+int SPPG[100], gaji[100];
+
+int main(){
+
+    for (int l = 0; l < 100; l++) {
+        spp[l] = "BELUM";
+    }
+
+    int pilih, i = 0;
+    string ulang;
+    login();
+
+
+    do {
+        menu();
+        cout << "PILIH [1/5] : "; cin >> pilih;
+
+        switch (pilih){
+        case 1: inputData(i);
+            break;
+        case 2: cariData(i);
+            break;
+        case 3: bayarSpp(i);
+            break;
+        case 4: editData(i);
+            break;
+        case 5: hapusData(i);
+            break;
+        case 6: faq();
+            break;
+        default: cout << "PILIHAN TIDAK ADA" << endl;
+            break;
+        }
+
+    b:
+
+        cout << "===========================" << endl;
+        cout << "KEMBALI[Y/N] : "; cin >> ulang;
+        if (ulang == "Y" || ulang == "y") {
+            continue;
+        }
+        else if (ulang == "N" || ulang == "n") {
+            return 0;
+        }
+        else {
+            goto b;
+        }
+    } while (pilih != 6);
+    return 0;
+}
+
+void login() {
+
+    string username, password, pass[10][10], newpass;
+    int k = 0;
+    pass[0][0] = "000";
+
+x:
+
+    for (int i = 1; i <= 3; i++) {
+    
+        
+        cout << "======== LOGIN =========" << endl;
+        cout << "[ USERNAME ==>  "; cin >> username;
+        cout << "[ PASSWORD ==>  "; hidePassword(password);
+        cout << "========================" << endl;
+
+        if (username == "halis" && password == pass[k][k]) {
+            break;
+        }
+        else if (username == "halis" && password != pass[k][k]) {
+            cout << "=== PASSWORD ANDA SALAH ===" << endl;
+            
+        }
+        else if (username != "halis" && password == pass[k][k]) {
+            cout << "=== EMAIL ANDA SALAH ===" << endl;
+        }
+        else {
+
+            cout << "=== PASSWORD DAN EMAIL SALAH ===" << endl;
+
+        }
+
+        if (i == 3) {
+            k++;
+            cout << "[PASSWORD BARU : "; cin >> pass[k][k];
+            i = 1;
+            goto x;
+        }
+    }
+}
+
+string hidePassword(string& password) {
+    int ch;
+    while ((ch = getch()) != '\r') {
+        if (ch == '\b') {
+            // Process a destructive backspace
+            if (password.size() > 0) {
+                password.erase(password.size() - 1, 1);
+                cout << "\b \b";
+            }
+        }
+        else {
+            password.push_back(ch);
+            cout.put('*');
+        }
+    }
+    cout.put('\n');
+    return password;
+}
+
+void menu() {
+
+    system("cls");
+    cout << "========= MENU =========" << endl;
+    cout << "[1].Input Data Siswa   " << endl;
+    cout << "[2].Cari Data Siswa     " << endl;
+    cout << "[3].Bayar SPP      " << endl;
+    cout << "[4].Edit Data Siswa      " << endl;
+    cout << "[5].Hapus Data Siswa    " << endl;
+    cout << "[6].FAQ                 " << endl;
+    cout << "[7].KELUAR                " << endl;
+    cout << "========================" << endl;
+}
+
+void inputData(int &i){
+
+    cin.ignore();
+    cout << "Input Nama    => "; getline(cin,nama[i]);
+    x:
+    cout << "Input Nisn    => "; cin >> nisn[i];
+    if(i >= 1){
+        if(nisn[i] == nisn[i - 1]){
+        goto x;
+        }
+    }
+
+    cin.ignore();
+    cout << "Input TTL       => "; getline(cin,ttl[i]);
+    cout << "Input Alamat    => "; getline(cin,alamat[i]);
+    cout << "Input Nama Ibu  => "; getline(cin,ibu[i]);
+    cout << "Input Nama Ayah => "; getline(cin,ayah[i]);
+    cout << "Input Gaji Ortu => "; cin >> gaji[i];
+
+    if(gaji[i] > 5000000){
+        SPPG[i] = 2500000;
+    }else{
+        SPPG[i] = 2000000;
+    }
+    i++;
+}
+
+void cariData(int &i){
+
+    string cNisn;
+    int l = 0, y ;
+
+    cout << "Input NISN => "; cin >> cNisn;
+    for(int k = 0; k < i; k++){
+        if(cNisn == nisn[k]){
+            l++;
+            y = k;
+            break;
+        }
+    }
+
+    if(l >= 1){
+
+        cout << "Nama       => " << nama[y] << endl;
+        cout << "NISN       => " << nisn[y] << endl;
+        cout << "TTL        => " << ttl[y] << endl;
+        cout << "Alamat     => " << alamat[y] << endl;
+        cout << "Ibu        => " << ibu[y] << endl;
+        cout << "Ayah       => " << ayah[y] << endl;
+        cout << "Gaji       => " << gaji[y] << endl;
+        cout << "Bayar SPP  => " << spp[y] << endl;
+        cout << "Kategori   => " << SPPG[y] << endl;
+    }else{
+        cout << "DATA TIDAK ADA" << endl;
+    }
+}
+
+void bayarSpp(int &i){
+    int bayar;
+    lihatData(i);
+    cout << "PILIH : "; cin >> bayar;
+    bayar = bayar - 1;
+
+    spp[bayar] = "SUDAH";
+
+
+}
+
+void lihatData(int &i){
+    for(int k = 0; k < i; k++){
+        cout << "[" << k + 1 << "]." << nama[k] << " | " << spp[k] << endl;
+    }
+}
+
+void editData(int &i){
+    string cNisn;
+    int l = 0, y ;
+    cout << "Input NISN : "; cin >> cNisn;
+    for(int k = 0; k < i; k++){
+        if(cNisn == nisn[k]){
+            l++;
+            y = k;
+            break;
+        }
+    }
+
+    if(l >= 1){
+        cin.ignore();
+        cout << "Input Nama      => "; getline(cin,nama[y]);
+         x:
+        cout << "Input NISN      => "; cin >> nisn[y];
+        if(y >= 1){
+            if(nisn[y] == nisn[y - 1]){
+             goto x;
+            }
+        }
+        cin.ignore();
+        cout << "Input TTL       => "; getline(cin,ttl[y]);
+        cout << "Input Alamat    => "; getline(cin,alamat[y]);
+        cout << "Input Nama Ibu  => "; getline(cin,ibu[y]);
+        cout << "Input Nama Ayah => "; getline(cin,ayah[y]);
+        cout << "Input Gaji ORTU => "; cin >> gaji[y];
+        if(gaji[y] > 5000000){
+        SPPG[y] = 2500000;
+        }else{
+            SPPG[y] = 2000000;
+        }
+    }else{
+        cout << "DATA TIDAK ADA" << endl;
+        }
+}
+
+void hapusData(int &i){
+    int hapus;
+    lihatData(i);
+    cout << "HAPUS => "; cin >> hapus;
+    for(int k = hapus - 1; k < i; k++){
+        nama[k] = nama[k+1];
+        nisn[k] = nisn[k+1];
+        ttl[k] = ttl[k+1];
+        alamat[k] = alamat[k+1];
+        ibu[k] = ibu[k+1];
+        ayah[k] = ayah[k+1];
+        gaji[k] = gaji[k+1];
+    }
+    i--;
+}
+void faq(){
+	cout << "==========================================================\n";
+	cout << "|                          F A Q                         |\n";
+	cout << "==========================================================\n";
+	cout << "| kesan :                                                |\n";
+	cout << "| Selama Mengikuti Praktikum Penyampain Meterinya Santai |\n";
+	cout << "| Tidak Tegang Tapi Mudah Di Tangkap Dan Di Pahami       |\n";
+	cout << "| Pesan :                                                |\n";
+	cout << "| Dalam Pemberian Soal Laporannya lewat classrom         |\n";
+	cout << "| secara tertulis Mungkin Lebih bagus                    |\n";
+	cout << "==========================================================\n";
+	system("pause");
+	
+}
