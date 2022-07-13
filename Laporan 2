@@ -1,0 +1,93 @@
+#include <iostream>
+using namespace std;
+
+int main(){
+
+    string username, password, pilih, ulang;
+    int baris, kolom, arr1, s = 3;
+    int nilai[100][100];
+    bool back = true;
+
+   do{
+
+     cout << "========= PROGRAM MATRIKS ==========" << endl;
+    cout << "[ MASUKKAN USERNAME ] = "; cin >> username;
+    cout << "[ MASUKKAN PASSWORD ] = "; cin >> password;
+
+    if(username == "IJAL" && password == "123"){
+
+       do{
+        
+        system("cls");
+        cout << "=== MENU ===" << endl;
+        cout << "1. MASUKKAN BARIS | KOLOM " << endl;
+        cout << "2. MASUKKAN NILAI " << endl;
+        cout << "3. LIHAT DATA " << endl;
+        cout << "4. EXIT " << endl;
+
+        cout << "PILIH [1-4] : "; cin >> pilih;
+        
+        
+        if(pilih == "1"){
+
+             cout << "MASUKKAN BARIS : "; cin >> baris;
+             cout << "MASUKKAN KOLOM : "; cin >> kolom;
+            
+        }else if(pilih == "2"){
+
+            
+            for(int i = 0; i < baris; i++){
+                 for(int k = 0; k < kolom; k++){
+                  x:
+                     cout << "MASUKKAN NILAI INDEKS KE- [" << i << "][" << k << "] : "; cin >> nilai[i][k];
+                     cout << endl;
+                   
+                    arr1 = nilai[i][k];
+                    for(int l = 0; l < baris; l++){
+                        for(int n = 0; n < kolom; n++){
+
+                           if(i == l && k == n){
+                            continue;
+                           }else{
+                            if(arr1 == nilai[l][n]){
+                                goto x;
+                            }
+                           }
+                        }
+                    }
+        }
+       
+    }
+
+        
+
+        }else if(pilih == "3"){
+
+          for(int i = 0; i < baris; i++){
+                for(int k = 0; k < kolom; k++){
+            cout << nilai[i][k] << " ";
+        }
+        cout << endl;
+    }
+
+        }else if(pilih == "4"){
+
+            back = false;
+
+        }
+        else{
+            cout << "PILIHAN TIDAK ADA" << endl;
+        }
+
+        system("pause");
+       }while(back == true);
+
+    }else{
+        cout << "USRENAME ATAU KATA SANDI ANDA SALAH" << endl;
+        cout << "SISA PERCOBAAN " << s << endl;
+        s--;
+    }
+
+   }while(s <= 1);
+
+}
